@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+const pages = await Astro.glob("./**/*.astro");
+---
+
+<Layout title="Weiss CS Club Homepage">
+  <main>
+    <h1>Welcome to the <span class="text-gradient">Weiss CS Club</span> Website!</h1>
+    <p class="box">Eventually this will look nicer</p>
+    <p class="box">
+      Here are all of the pages that exist:
+
+      <ul>
+        {
+          pages.map((val) => (
+            <li>
+              <a href={val.url}>{val.url}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </p>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .box {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
+</style>

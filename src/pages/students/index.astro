@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const students = (await Promise.all([Astro.glob("./*.astro"), Astro.glob("./*/index.astro")])).flat();
+---
+
+<Layout title="Students">
+  <h1>Students:</h1>
+  <ul>
+    {
+      students.map((s) => {
+        return (
+          <li>
+            <a href={s.url}>{s.url!.split("/").at(-1)}</a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</Layout>
+
+<style lang="scss">
+  li {
+    margin-left: 2rem;
+  }
+</style>
