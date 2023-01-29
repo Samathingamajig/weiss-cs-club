@@ -93,6 +93,12 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
 | `npm run astro --help` | Get help using the Astro CLI                       |
 
+If you don't have NodeJS and npm installed:
+
+- Windows: [Download the installer](https://nodejs.org/en/download/)
+- Mac: [Install with Homebrew](https://brew.sh/) (`brew install node`)
+- Linux: As a Linux user, you should know how to do this, but if you need it [go here I guess](https://nodejs.org/en/download/package-manager/)
+
 ## 👀 Astro?
 
 Check out the [Astro documentation](https://docs.astro.build).
