@@ -1,10 +1,21 @@
 ---
 import { SecretAccessor } from "../../../components/SecretAccessor";
+import Tooltip from "../../../components/Tooltip.astro";
 import Layout from "../../../layouts/Layout.astro";
 ---
 
 <Layout title="sam's page">
-  <h1>This is a page</h1>
-  <p>shiver me timbers</p>
-  <SecretAccessor client:load />
+  <h1>Samuel Gunter</h1>
+  <ul>
+    <li>
+      Co-founder & Vice President of the Weiss High School <Tooltip
+        tip={`It should be "Computer Science" club, but I didn't get a choice`}
+      >
+        Coding
+      </Tooltip> Club
+    </li>
+  </ul>
 </Layout>
+<SecretAccessor client:load />
+
+<style lang="scss"></style>
