@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/react": "^2.0.1",
     "astro": "^1.9.0",
+    "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
@@ -21,6 +22,8 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10"
+    "@types/react-dom": "^18.0.10",
+    "prettier": "^2.8.4",
+    "prettier-plugin-astro": "^0.8.0"
   }
 }
