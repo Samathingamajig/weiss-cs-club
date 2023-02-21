@@ -1,21 +1,108 @@
 ---
-import { SecretAccessor } from "../../../components/SecretAccessor";
-import Tooltip from "../../../components/Tooltip.astro";
+import { SecretAccessor } from "../../../components/sam/SecretAccessor";
+import ExperienceItem from "../../../components/sam/ExperienceItem.astro";
+import { Tooltip } from "../../../components/sam/Tooltip.tsx";
 import Layout from "../../../layouts/Layout.astro";
 ---
 
 <Layout title="sam's page">
-  <h1>Samuel Gunter</h1>
-  <ul>
-    <li>
-      Co-founder & Vice President of the Weiss High School <Tooltip
-        tip={`It should be "Computer Science" club, but I didn't get a choice`}
-      >
-        Coding
-      </Tooltip> Club
-    </li>
-  </ul>
+  <div class="sam-page">
+    <h1>Samuel Gunter</h1>
+    <ul class="simple-list">
+      <li>High School Senior at Weiss High School</li>
+      <li>
+        Co-founder & Vice President of the Weiss High School
+        <Tooltip
+          tip={`It should be "Computer Science" club, but I didn't make the decision`}
+          position="below"
+          client:load
+        >
+          Coding
+        </Tooltip> Club
+      </li>
+      <li>
+        Interned twice at <a href="https://www.atlassian.com/" target="_blank">Atlassian</a>, and returning summer of
+        2023 for another internship
+      </li>
+      <li>
+        Accepted at <a href="https://www.utexas.edu/">UT Austin</a> for Computer Science; deferred for <a
+          href="https://www.cs.utexas.edu/turing-scholars">Turing Scholars</a
+        > (UT Austin Computer Science Honors); pending for <a href="https://web.mit.edu">MIT</a> Computer Science
+      </li>
+    </ul>
+    <img src="/students/sam/fancy sam.jpg" alt="Sam in a tuxedo" class="fancy-sam-image" />
+    <section class="experience-section">
+      <h2>Experience</h2>
+      <ExperienceItem
+        company="Atlassian"
+        companyLink="https://www.atlassian.com/"
+        role="Software Engineering Intern, Summer 2022"
+        descriptions={[
+          "Worked on Questions for Confluence, a QnA plugin for Confluence, migrating how certain data is stored",
+          "Participated in daily standups, used Jira to manage the roadmap, (git) Bitbucket for version control, Slack for communication, and Loom for recording demos",
+          "Presented project progress weekly with the (20+ coworkers) Confluence Ecosystem team, and to the entire Confluence team (130+ coworkers) and Atlassian as a whole at the end",
+        ]}
+      />
+      <ExperienceItem
+        company="Atlassian"
+        companyLink="https://www.atlassian.com/"
+        role="Software Engineering Intern, Summer 2021"
+        descriptions={[
+          "Wrote a Chrome extension with TypeScript and React to interface with an Atlassian product (Halp) from any site",
+          "Worked on a team of 5 (3 devs), using Jira to manage our roadmap, (git) Bitbucket for version control, Slack for communication, and Loom for recording demos",
+          "Presented project progress weekly with the larger (30+ coworkers) Halp team, and to Atlassian as a whole at the end",
+        ]}
+      />
+      <ExperienceItem
+        company="Code2College"
+        companyLink="https://code2college.org/"
+        role="Student, Fall 2019 - Current"
+        descriptions={[
+          "Participated as a student in programming courses to develop basic and advanced Python, JavaScript, and C++ skills",
+          "Developed and collaborated on programming projects, working closely with professional software engineers from various tech companies",
+        ]}
+      />
+    </section>
+  </div>
 </Layout>
 <SecretAccessor client:load />
 
-<style lang="scss"></style>
+<style lang="scss">
+  @import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
+
+  $partial-width: min(80%, 40rem);
+
+  .sam-page {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  h1 {
+    font-family: "Mynerve", cursive;
+    font-size: 3rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  ul.simple-list {
+    max-width: $partial-width;
+  }
+
+  .fancy-sam-image {
+    max-width: min(70%, 20rem);
+  }
+
+  .experience-section {
+    width: $partial-width;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h2 {
+      width: 100%;
+      text-align: left;
+    }
+  }
+</style>

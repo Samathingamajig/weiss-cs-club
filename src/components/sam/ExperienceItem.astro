@@ -1,0 +1,55 @@
+---
+import { HiOutlineExternalLink } from "react-icons/hi";
+
+interface Props {
+  company: string;
+  companyLink?: string;
+  role?: string;
+  descriptions: string[];
+}
+---
+
+<div>
+  <h3>
+    {Astro.props.company}{
+      Astro.props.companyLink && (
+        <a target="_blank" href={Astro.props.companyLink} class="external-link">
+          <HiOutlineExternalLink />
+        </a>
+      )
+    }
+  </h3>
+  {Astro.props.role && <h4>{Astro.props.role}</h4>}
+  <ul>
+    {Astro.props.descriptions.map((description) => <li>{description}</li>)}
+  </ul>
+</div>
+
+<style lang="scss">
+  div {
+    width: 100%;
+  }
+
+  .external-link {
+    // margin-left: 0.2j5rem;
+    text-decoration: none;
+    // font-size: 1rem;
+  }
+
+  h4 {
+    font-style: italic;
+  }
+
+  ul {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    li {
+      // q: what is the css property for line spacing?
+      // a: line-height
+      line-height: 1.25rem;
+    }
+  }
+</style>

@@ -13,11 +13,15 @@ export const SecretAccessor: FC = () => {
       clearTimeout(timeout.current ?? -1);
     };
     window.addEventListener("mousedown", downListener);
+    window.addEventListener("touchstart", downListener);
     window.addEventListener("mouseup", upListener);
+    window.addEventListener("touchend", upListener);
 
     () => {
       window.removeEventListener("mousedown", downListener);
+      window.removeEventListener("touchstart", downListener);
       window.removeEventListener("mouseup", upListener);
+      window.removeEventListener("touchend", upListener);
     };
   }, []);
 
