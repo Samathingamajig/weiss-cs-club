@@ -12,11 +12,13 @@ const pages = await Astro.glob("./**/*.astro");
 
       <ul>
         {
-          pages.map((val) => (
-            <li>
-              <a href={val.url}>{val.url}</a>
-            </li>
-          ))
+          pages
+            .filter((val) => !val.file.endsWith("secret.astro"))
+            .map((val) => (
+              <li>
+                <a href={val.url}>{val.url}</a>
+              </li>
+            ))
         }
       </ul>
     </p>
